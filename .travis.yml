@@ -23,4 +23,4 @@ before_install:
     fi
 
 script:
-  - pwsh -Command {Wrtie-Host 'It works!'}
+  - pwsh -File TravisCI.ps1
