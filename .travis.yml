@@ -1,0 +1,22 @@
+language: bash
+os:
+  - linux
+  - osx
+dist: trusty
+osx_image: xcode8.1
+sudo: required
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - &&
+      curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list &&
+      sudo apt-get -qq update &&
+      sudo apt-get install -y powershell
+    fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew tap caskroom/cask &&
+      brew cask install powershell;
+    fi
+
+script:
+  - pwsh -Command {$PSVersionTable}
