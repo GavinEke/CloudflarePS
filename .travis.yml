@@ -8,13 +8,15 @@ sudo: required
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - &&
-      curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list &&
-      sudo apt-get -qq update &&
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -;
+      curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft.list;
+      sudo apt-get -qq update;
       sudo apt-get install -y powershell;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew tap caskroom/cask &&
+      rvm install ruby-2.3.3;
+      rvm --default use 2.3.3;
+      brew tap caskroom/cask;
       brew cask install powershell;
     fi
 
