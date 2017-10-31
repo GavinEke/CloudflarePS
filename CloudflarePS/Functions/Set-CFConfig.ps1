@@ -45,7 +45,8 @@
             }
 
             Write-Verbose "Getting ZoneID of domain $Domain"
-            $ZoneID = (Invoke-RestMethod -Method Get -Uri "https://api.cloudflare.com/client/v4/zones?name=$Domain&status=active&page=1&per_page=20&order=status&direction=desc&match=all" -Headers $Headers).result.id
+            $Response = (Invoke-RestMethod -Method Get -Uri "https://api.cloudflare.com/client/v4/zones" -Headers $Headers).result
+            $ZoneID = $Response | Where-Object {$_.name -eq "$Domain"} | Select-Object -ExpandProperty id
         }
 
         $CFConfigurationFile = @{ApiKey = $ApiKey; Email = $Email; Domain = $Domain; ZoneID = $ZoneID}

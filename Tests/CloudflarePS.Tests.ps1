@@ -11,8 +11,9 @@ Describe "$ModuleName Module" {
         Set-StrictMode -Version latest
         It 'should load all functions' {
             $Commands = @( Get-Command -CommandType Function -Module $ModuleName | Select-Object -ExpandProperty Name)
-            $Commands.count | Should be 4
+            $Commands.count | Should be 5
             $Commands -contains "Get-CFDevelopmentMode" | Should be $True
+            $Commands -contains "Get-CFDnsRecords"      | Should be $True
             $Commands -contains "Import-CFConfig"       | Should be $True
             $Commands -contains "Set-CFConfig"          | Should be $True
             $Commands -contains "Set-CFDevelopmentMode" | Should be $True
@@ -30,7 +31,7 @@ Describe "$ModuleName Module" {
 		
         It "has a valid manifest" {
             {
-                $ManifestTest = Test-ModuleManifest -Path "$PSScriptRoot\..\$ModuleName\$ModuleName.psd1" -ErrorAction Stop -WarningAction SilentlyContinue
+                Test-ModuleManifest -Path "$PSScriptRoot\..\$ModuleName\$ModuleName.psd1" -ErrorAction Stop -WarningAction SilentlyContinue
             } | Should Not Throw
 		}
     }
