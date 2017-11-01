@@ -11,7 +11,7 @@
 
         [Parameter(Mandatory = $True, HelpMessage = 'Global API Key on https://www.cloudflare.com/a/profile')]
         [Alias('XAuthKey')]
-        [ValidateLength(35, 40)]
+        [ValidateLength(20, 140)]
         [String]$ApiKey,
 
         [Parameter(Mandatory = $True, ParameterSetName='DomainName', HelpMessage = 'The domain to use with the API')]
@@ -20,7 +20,7 @@
         [String]$Domain,
 
         [Parameter(Mandatory = $True, ParameterSetName='ZoneID', HelpMessage = 'The Zone ID of the domain to use with the API')]
-        [ValidateLength(20, 160)]
+        [ValidateLength(20, 140)]
         [String]$ZoneID,
 
         [Parameter(HelpMessage = 'Optional non default path to config file')]

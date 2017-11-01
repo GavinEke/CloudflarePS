@@ -1,4 +1,4 @@
-﻿Function Get-CFDnsRecords {
+﻿Function Get-CFDnsRecord {
     [CmdletBinding()]
     Param()
     
