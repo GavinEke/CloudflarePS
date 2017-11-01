@@ -30,28 +30,27 @@
 
     Begin {
         $CFConfDir = Split-Path -Path "$Path"
-        $CFConfFile = Split-Path -Path "$Path" -Leaf
         If (!(Test-Path -Path "$CFConfDir")) {
             New-Item "$CFConfDir" -ItemType Directory | Out-Null
-            Write-Verbose "Creating folder $CFConfDir"
+            Write-Verbose -Message "Creating folder $CFConfDir"
         }
     }
 
     Process {
-        If ($PSCmdlet.ParameterSetName -eq "DomainName") {
+        If ($PSCmdlet.ParameterSetName -eq 'DomainName') {
             $Headers = @{'X-Auth-Email' = $Email;
                 'X-Auth-Key' = $ApiKey;
-                'Content-Type' = "application/json"
+                'Content-Type' = 'application/json'
             }
 
-            Write-Verbose "Getting ZoneID of domain $Domain"
-            $Response = (Invoke-RestMethod -Method Get -Uri "https://api.cloudflare.com/client/v4/zones" -Headers $Headers).result
+            Write-Verbose -Message "Getting ZoneID of domain $Domain"
+            $Response = (Invoke-RestMethod -Method Get -Uri 'https://api.cloudflare.com/client/v4/zones' -Headers $Headers).result
             $ZoneID = $Response | Where-Object {$_.name -eq "$Domain"} | Select-Object -ExpandProperty id
         }
 
         $CFConfigurationFile = @{ApiKey = $ApiKey; Email = $Email; Domain = $Domain; ZoneID = $ZoneID}
-        $CFConfigurationFile | Export-Clixml -Path "$CFConfDir\$CFConfFile" -Force
-        Write-Verbose "CFConfigurationFile has been written to $CFConfDir\$CFConfFile"
+        $CFConfigurationFile | Export-Clixml -Path "$Path" -Force
+        Write-Verbose -Message "CFConfigurationFile has been written to $Path"
     }
 
     End {}

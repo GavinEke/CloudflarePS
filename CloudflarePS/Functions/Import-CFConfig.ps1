@@ -6,19 +6,16 @@
         [System.IO.FileInfo]$Path = "$HOME\.CloudFlarePS\CFConfigurationFile.xml"
     )
     
-    Begin {
-        $CFConfDir = Split-Path -Path "$Path"
-        $CFConfFile = Split-Path -Path "$Path" -Leaf
-    }
+    Begin {}
 
     Process {
-        If (Test-Path -Path "$CFConfDir\$CFConfFile") {
-            $CFConfigurationFile = Import-Clixml -Path "$CFConfDir\$CFConfFile"
-            Write-Verbose "CFConfigurationFile has been loaded from $CFConfDir\$CFConfFile"
+        If (Test-Path -Path "$Path") {
+            $CFConfigurationFile = Import-Clixml -Path "$Path"
+            Write-Verbose -Message "CFConfigurationFile has been loaded from $Path"
             
             $Script:CFHeaders = @{'X-Auth-Email' = $CFConfigurationFile.Email;
                 'X-Auth-Key'              = $CFConfigurationFile.ApiKey;
-                'Content-Type'            = "application/json"
+                'Content-Type'            = 'application/json'
             }
             $Script:Email = $CFConfigurationFile.Email
             $Script:ApiKey = $CFConfigurationFile.ApiKey
@@ -27,7 +24,7 @@
             $Script:ConfigImported = $True
         }
         Else {
-            Write-Warning "No Configuration File Found. Please run Set-CFConfig to create a Configuration File."
+            Write-Warning -Message 'No Configuration File Found. Please run Set-CFConfig to create a Configuration File.'
             $Script:ConfigImported = $False
         }
     }

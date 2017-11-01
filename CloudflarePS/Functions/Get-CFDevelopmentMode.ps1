@@ -14,7 +14,7 @@
             } ElseIf ($Response.value -eq 'on') {
                 Write-Output 'Enabled'
             } Else {
-                Write-Error 'Cloudflare API returned invalid or unrecognized response'
+                Write-Error -Message 'Cloudflare API returned invalid or unrecognized response'
             }
         }
     }
