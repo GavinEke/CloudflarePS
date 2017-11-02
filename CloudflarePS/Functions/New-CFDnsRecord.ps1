@@ -29,7 +29,8 @@ Function New-CFDnsRecord {
 
     Process {
         If ($ConfigImported) {
-            $Body = '{"type":"' + $Type + '","name":"' + $Name + '","content":"' + $Content + '","ttl":"' + $TTL + '","proxied":"' + $Proxied + '"}'
+            #$Body = '{"type":"' + $Type + '","name":"' + $Name + '","content":"' + $Content + '","ttl":"' + $TTL + '","proxied":"' + $Proxied + '"}'
+            $Body = '{"type":"{0}","name":"{1}","content":"{2}","ttl":"{3}","proxied":"{4}"}' -f $Type, $Name, $Content, $TTL, $Proxied
             $Response = (Invoke-RestMethod -Method Post -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/dns_records" -Headers $CFHeaders -Body $Body).result
             $Response
         }

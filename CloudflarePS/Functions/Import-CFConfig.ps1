@@ -24,7 +24,7 @@
             $Script:ConfigImported = $True
         }
         Else {
-            Write-Warning -Message 'No Configuration File Found. Please run Set-CFConfig to create a Configuration File.'
+            Write-Warning -Message 'No Configuration File Found. Please run New-CFConfig to create a Configuration File.'
             $Script:ConfigImported = $False
         }
     }

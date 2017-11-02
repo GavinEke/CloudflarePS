@@ -9,15 +9,6 @@ Import-Module "$PSScriptRoot\..\$ModuleName\$ModuleName" -Verbose -Force -ErrorA
 Describe "$ModuleName Module" {
     Context 'Strict mode' {
         Set-StrictMode -Version latest
-        It 'should load all functions' {
-            $Commands = @( Get-Command -CommandType Function -Module $ModuleName | Select-Object -ExpandProperty Name)
-            $Commands.count | Should be 5
-            $Commands -contains "Get-CFDevelopmentMode" | Should be $True
-            $Commands -contains "Get-CFDnsRecords"      | Should be $True
-            $Commands -contains "Import-CFConfig"       | Should be $True
-            $Commands -contains "Set-CFConfig"          | Should be $True
-            $Commands -contains "Set-CFDevelopmentMode" | Should be $True
-		}
 		
 		It 'Should not have any PSScriptAnalyzer warnings' {
             If (Get-Module -ListAvailable PSScriptAnalyzer) {
