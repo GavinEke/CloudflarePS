@@ -12,12 +12,26 @@
 
     Process {
         If ($ConfigImported) {
-            If ($Request -eq 'Enable') {
-                $Response = (Invoke-RestMethod -Method Patch -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/settings/development_mode" -Headers $CFHeaders -Body '{"value":"on"}').result
-                Write-Output 'Enabled'
-            } Else {
-                $Response = (Invoke-RestMethod -Method Patch -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/settings/development_mode" -Headers $CFHeaders -Body '{"value":"off"}').result
-                Write-Output 'Disabled'
+            Try {
+                $Uri = "$BaseUri/zones/$CFZoneID/settings/development_mode"
+
+                If ($Request -eq 'Enable') {
+                    $Response = Invoke-RestMethod -Method Patch -Uri $Uri -Headers $CFHeaders -Body '{"value":"on"}'
+                    If ($Response.success) {
+                        Write-Output 'Enabled'
+                    } Else {
+                        Write-Error -Message "$($Response.errors)"
+                    }
+                } Else {
+                    $Response = Invoke-RestMethod -Method Patch -Uri $Uri -Headers $CFHeaders -Body '{"value":"off"}'
+                    If ($Response.success) {
+                        Write-Output 'Disabled'
+                    } Else {
+                        Write-Error -Message "$($Response.errors)"
+                    }
+                }
+            } Catch {
+                $_.Exception.Message
             }
         }
     }

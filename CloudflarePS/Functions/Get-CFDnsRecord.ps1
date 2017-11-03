@@ -8,8 +8,26 @@
 
     Process {
         If ($ConfigImported) {
-            $Response = (Invoke-RestMethod -Method Get -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/dns_records" -Headers $CFHeaders).result
-            $Response
+            Try {
+                $Uri = "$BaseUri/zones/$CFZoneID/dns_records"
+                $Response = Invoke-RestMethod -Method Get -Uri $Uri -Headers $CFHeaders
+
+                If ($Response.success) {
+                    ForEach ($Item in $Response) {
+                        [PSCustomObject]@{
+                            Id = $Item.result.id
+                            Type = $Item.result.type
+                            Name = $Item.result.name
+                            TTL = $Item.result.ttl
+                            Proxied = $Item.result.proxied
+                        }
+                    }
+                } Else {
+                    Write-Error -Message "$($Response.errors)"
+                }
+            } Catch {
+                $_.Exception.Message
+            }
         }
     }
 

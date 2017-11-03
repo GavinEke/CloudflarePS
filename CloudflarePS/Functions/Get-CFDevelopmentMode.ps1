@@ -8,13 +8,21 @@
 
     Process {
         If ($ConfigImported) {
-            $Response = (Invoke-RestMethod -Method Get -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/settings/development_mode" -Headers $CFHeaders).result
-            If ($Response.value -eq 'off') {
-                Write-Output 'Disabled'
-            } ElseIf ($Response.value -eq 'on') {
-                Write-Output 'Enabled'
-            } Else {
-                Write-Error -Message 'Cloudflare API returned invalid or unrecognized response'
+            Try {
+                $Uri = "$BaseUri/zones/$CFZoneID/settings/development_mode"
+                $Response = Invoke-RestMethod -Method Get -Uri $Uri -Headers $CFHeaders
+
+                If ($Response.success -and $Response.result.value -eq 'off') {
+                    Write-Output 'Disabled'
+                } ElseIf ($Response.success -and $Response.result.value -eq 'on') {
+                    Write-Output 'Enabled'
+                } ElseIf (-not ($Response.success)) {
+                    Write-Error -Message "$($Response.errors)"
+                } Else {
+                    Write-Error -Message 'Cloudflare API returned invalid or unrecognized response'
+                }
+            } Catch {
+                $_.Exception.Message
             }
         }
     }

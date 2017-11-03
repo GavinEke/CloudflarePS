@@ -29,10 +29,25 @@ Function New-CFDnsRecord {
 
     Process {
         If ($ConfigImported) {
-            #$Body = '{"type":"' + $Type + '","name":"' + $Name + '","content":"' + $Content + '","ttl":"' + $TTL + '","proxied":"' + $Proxied + '"}'
-            $Body = '{"type":"{0}","name":"{1}","content":"{2}","ttl":"{3}","proxied":"{4}"}' -f $Type, $Name, $Content, $TTL, $Proxied
-            $Response = (Invoke-RestMethod -Method Post -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/dns_records" -Headers $CFHeaders -Body $Body).result
-            $Response
+            Try {
+                $Uri = "$BaseUri/zones/$CFZoneID/dns_records"
+                $Body = '{"type":"{0}","name":"{1}","content":"{2}","ttl":"{3}","proxied":"{4}"}' -f $Type, $Name, $Content, $TTL, $Proxied
+                $Response = Invoke-RestMethod -Method Post -Uri $Uri -Headers $CFHeaders -Body $Body
+
+                If ($Response.success) {
+                    [PSCustomObject]@{
+                        Id = $Response.result.id
+                        Type = $Response.result.type
+                        Name = $Response.result.name
+                        TTL = $Response.result.ttl
+                        Proxied = $Response.result.proxied
+                    }
+                } Else {
+                    Write-Error -Message "$($Response.errors)"
+                }
+            } Catch {
+                $_.Exception.Message
+            }
         }
     }
 

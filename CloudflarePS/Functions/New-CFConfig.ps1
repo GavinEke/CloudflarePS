@@ -43,9 +43,18 @@
                 'Content-Type' = 'application/json'
             }
 
-            Write-Verbose -Message "Getting ZoneID of domain $Domain"
-            $Response = (Invoke-RestMethod -Method Get -Uri 'https://api.cloudflare.com/client/v4/zones' -Headers $Headers).result
-            $ZoneID = $Response | Where-Object {$_.name -eq "$Domain"} | Select-Object -ExpandProperty id
+            Try {
+                Write-Verbose -Message "Getting ZoneID of domain $Domain"
+                $Uri = "$BaseUri/zones"
+                $Response = Invoke-RestMethod -Method Get -Uri $Uri -Headers $Headers
+                If ($Response.success) {
+                    $ZoneID = $Response | Where-Object {$_.result.name -eq "$Domain"} | Select-Object -ExpandProperty id
+                } Else {
+                    Write-Error -Message "$($Response.errors)"
+                }
+            } Catch {
+                $_.Exception.Message
+            }
         }
 
         $CFConfigurationFile = @{ApiKey = $ApiKey; Email = $Email; Domain = $Domain; ZoneID = $ZoneID}

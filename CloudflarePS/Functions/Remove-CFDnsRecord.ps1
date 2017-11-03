@@ -3,7 +3,7 @@ Function Remove-CFDnsRecord {
     Param(
         [Parameter(Mandatory = $True, HelpMessage = 'DNS record ID')]
         [ValidateLength(20, 140)]
-        [String]$ID
+        [String]$Id
     )
     
     Begin {
@@ -12,8 +12,18 @@ Function Remove-CFDnsRecord {
 
     Process {
         If ($ConfigImported) {
-            $Response = (Invoke-RestMethod -Method Delete -Uri "https://api.cloudflare.com/client/v4/zones/$CFZoneID/dns_records/$ID" -Headers $CFHeaders).result
-            $Response
+            Try {
+                $Uri = "$BaseUri/zones/$CFZoneID/dns_records/$Id"
+                $Response = Invoke-RestMethod -Method Delete -Uri $Uri -Headers $CFHeaders
+                
+                If ($Response.success) {
+                    Write-Output "Removed $($Response.result.id)"
+                } Else {
+                    Write-Error -Message "$($Response.errors)"
+                }
+            } Catch {
+                $_.Exception.Message
+            }
         }
     }
 

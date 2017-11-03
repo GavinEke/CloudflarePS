@@ -21,6 +21,7 @@
             $Script:ApiKey = $CFConfigurationFile.ApiKey
             $Script:Domain = $CFConfigurationFile.Domain
             $Script:CFZoneID = $CFConfigurationFile.ZoneID
+            $Script:BaseUri = 'https://api.cloudflare.com/client/v4'
             $Script:ConfigImported = $True
         }
         Else {
