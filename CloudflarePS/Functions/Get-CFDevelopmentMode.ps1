@@ -12,14 +12,16 @@
                 $Uri = "$BaseUri/zones/$CFZoneID/settings/development_mode"
                 $Response = Invoke-RestMethod -Method Get -Uri $Uri -Headers $CFHeaders
 
-                If ($Response.success -and $Response.result.value -eq 'off') {
-                    Write-Output 'Disabled'
-                } ElseIf ($Response.success -and $Response.result.value -eq 'on') {
-                    Write-Output 'Enabled'
-                } ElseIf (-not ($Response.success)) {
-                    Write-Error -Message "$($Response.errors)"
+                If ($Response.success) {
+                    If ($Response.result.value -eq 'off') {
+                        Write-Output 'Disabled'
+                    } ElseIf ($Response.result.value -eq 'on') {
+                        Write-Output 'Enabled'
+                    } Else {
+                        Write-Error -Message 'Cloudflare API returned invalid or unrecognized response'
+                    }
                 } Else {
-                    Write-Error -Message 'Cloudflare API returned invalid or unrecognized response'
+                    Write-Error -Message "$($Response.errors)"
                 }
             } Catch {
                 $_.Exception.Message

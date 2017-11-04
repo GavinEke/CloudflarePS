@@ -38,21 +38,22 @@
 
     Process {
         If ($PSCmdlet.ParameterSetName -eq 'DomainName') {
-            $Headers = @{'X-Auth-Email' = $Email;
-                'X-Auth-Key' = $ApiKey;
-                'Content-Type' = 'application/json'
-            }
-
             Try {
                 Write-Verbose -Message "Getting ZoneID of domain $Domain"
+                $Headers = @{'X-Auth-Email' = $Email;
+                    'X-Auth-Key'            = $ApiKey;
+                    'Content-Type'          = 'application/json'
+                }
                 $Uri = "$BaseUri/zones"
                 $Response = Invoke-RestMethod -Method Get -Uri $Uri -Headers $Headers
+
                 If ($Response.success) {
                     $ZoneID = $Response | Where-Object {$_.result.name -eq "$Domain"} | Select-Object -ExpandProperty id
                 } Else {
                     Write-Error -Message "$($Response.errors)"
                 }
-            } Catch {
+            }
+            Catch {
                 $_.Exception.Message
             }
         }
