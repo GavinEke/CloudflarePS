@@ -52,8 +52,7 @@
                 } Else {
                     Write-Error -Message "$($Response.errors)"
                 }
-            }
-            Catch {
+            } Catch {
                 $_.Exception.Message
             }
         }
