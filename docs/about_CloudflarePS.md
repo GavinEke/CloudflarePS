@@ -1,29 +1,13 @@
 ﻿# CloudflarePS
 ## about_CloudflarePS
 
-```
-ABOUT TOPIC NOTE:
-The first header of the about topic should be the topic name.
-The second header contains the lookup name used by the help system.
-
-IE:
-# Some Help Topic Name
-## SomeHelpTopicFileName
-
-This will be transformed into the text file
-as `about_SomeHelpTopicFileName`.
-Do not include file extensions.
-The second header should have no spaces.
-```              
+PowerShell Module for managing domains with Cloudflare.           
 
 # SHORT DESCRIPTION
 PowerShell Module for managing domains with Cloudflare.
 
 # LONG DESCRIPTION
-{{ Long Description Placeholder }}
-
-## Optional Subtopics
-{{ Optional Subtopic Placeholder }}
+PowerShell Module for managing domains with Cloudflare.
 
 # EXAMPLES
 Create multiple configs for different domains
@@ -60,17 +44,13 @@ New-CFDnsRecord -Type CNAME -Name enterpriseenrollment -Content enterpriseenroll
 ```
 
 # NOTE
-{{ Note Placeholder - Additional information that a user needs to know.}}
+
 
 # TROUBLESHOOTING NOTE
-{{ Troubleshooting Placeholder - Warns users of bugs}}
 
-{{ Explains behavior that is likely to change with fixes }}
 
 # SEE ALSO
-{{ See also placeholder }}
 
-{{ You can also list related articles, blogs, and video URLs. }}
 
 # KEYWORDS
 

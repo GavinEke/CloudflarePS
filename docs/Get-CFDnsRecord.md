@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-CFDnsRecord
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+List, search, sort, and filter a zones' DNS records.
 
 ## SYNTAX
 
@@ -17,16 +17,24 @@ Get-CFDnsRecord
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Gets all DNS records.
 
 ## EXAMPLES
 
 ### Example 1
 ```
-PS C:\> {{ Add example code here }}
+PS C:\> Get-CFDnsRecord
 ```
 
-{{ Add example description here }}
+Lists all DNS records
+
+### Example 2
+```
+PS C:\> Get-CFDnsRecord | Where-Object {$_.name -like 'www.*'}
+```
+
+Gets the DNS record with the name that starts with `www.`
+
 
 ## PARAMETERS
 

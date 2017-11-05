@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-CFDnsRecord
 
 ## SYNOPSIS
-Creates a new DNS record.
+Create a new DNS record for a zone. See the record object definitions for required attributes for each record type.
 
 ## SYNTAX
 
