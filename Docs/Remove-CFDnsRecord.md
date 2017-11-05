@@ -8,7 +8,7 @@ schema: 2.0.0
 # Remove-CFDnsRecord
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Removes a specified DNS records.
 
 ## SYNTAX
 
@@ -17,16 +17,24 @@ Remove-CFDnsRecord [-Id] <String>
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Removes a specified DNS records.
 
 ## EXAMPLES
 
 ### Example 1
 ```
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-CFDnsRecord -Id 123abc4567890def
 ```
 
-{{ Add example description here }}
+Removes the DNS record with the Id `123abc4567890def`
+
+### Example 2
+```
+PS C:\> $x = Get-CFDnsRecord | Where-Object {$_.name -like 'autodiscover.*'} | Select-Object -ExpandProperty id
+PS C:\> Remove-CFDnsRecord $x
+```
+
+Removes the DNS record with the name that starts with `autodiscover.`
 
 ## PARAMETERS
 

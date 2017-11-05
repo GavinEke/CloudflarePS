@@ -8,7 +8,7 @@ schema: 2.0.0
 # Import-CFConfig
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+This command will import the config which is required for use with other function in the module.
 
 ## SYNTAX
 
@@ -17,16 +17,23 @@ Import-CFConfig [[-Path] <FileInfo>]
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Imports the config to use with the module.
 
 ## EXAMPLES
 
 ### Example 1
 ```
-PS C:\> {{ Add example code here }}
+PS C:\> Import-CFConfig
 ```
 
-{{ Add example description here }}
+Import the config from the default location
+
+### Example 2
+```
+PS C:\> Import-CFConfig '~\CFExampleNet.xml'
+```
+
+Import a config from the specified location
 
 ## PARAMETERS
 

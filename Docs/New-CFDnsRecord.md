@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-CFDnsRecord
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Creates a new DNS record.
 
 ## SYNTAX
 
@@ -17,16 +17,31 @@ New-CFDnsRecord [-Type] <String> [-Name] <String> [-Content] <String> [[-TTL] <I
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Creates a new DNS record.
 
 ## EXAMPLES
 
 ### Example 1
 ```
-PS C:\> {{ Add example code here }}
+PS C:\> New-CFDnsRecord -Type A -Name @ -Content 123.123.123.123 -TTL 120 -Proxied true
 ```
 
-{{ Add example description here }}
+Creates a DNS record for the domain with a TTL of 120 seconds and which will proxied by Cloudflare
+
+### Example 2
+```
+PS C:\> New-CFDnsRecord -Type CNAME -Name msoid -Content clientconfig.microsoftonline-p.net -TTL 3600 -Proxied false
+```
+
+Creates the DNS record for Microsoft Online ID
+
+### Example 3
+```
+PS C:\> New-CFDnsRecord -Type CNAME -Name enterpriseregistration -Content enterpriseregistration.windows.net -TTL 3600 -Proxied false
+PS C:\> New-CFDnsRecord -Type CNAME -Name enterpriseenrollment -Content enterpriseenrollment.manage.microsoft.com -TTL 3600 -Proxied false
+```
+
+Creates the DNS records for Mobile Device Management for Office 365
 
 ## PARAMETERS
 

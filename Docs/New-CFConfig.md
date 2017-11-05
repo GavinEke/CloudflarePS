@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-CFConfig
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+It is required to create a config file for the module using this command as the config file is used for all other functions in this module.
 
 ## SYNTAX
 
@@ -23,16 +23,30 @@ New-CFConfig -Email <MailAddress> -ApiKey <String> -ZoneID <String> [-Path <Stri
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Creates a config file to be used in conjunction with the other function in this module. 
 
 ## EXAMPLES
 
 ### Example 1
 ```
-PS C:\> {{ Add example code here }}
+PS C:\> New-CFConfig -Email 'email@example.com' -ApiKey 1234567890abcdef -Domain 'example.com'
 ```
 
-{{ Add example description here }}
+Creates a new config file in the default location for the domain `example.com`
+
+### Example 2
+```
+PS C:\> New-CFConfig -Email 'email@example.com' -ApiKey 1234567890abcdef -ZoneID abcdef1234567890
+```
+
+Creates a new config file in the deault location for the zone id `abcdef1234567890`
+
+### Example 3
+```
+PS C:\> New-CFConfig -Email 'email@example.com' -ApiKey 1234567890abcdef -Domain 'example.net' -Path '~\CFExampleNet.xml'
+```
+
+Creates a new config file in a non-default location for the domain `example.net`
 
 ## PARAMETERS
 
