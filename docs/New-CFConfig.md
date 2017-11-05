@@ -1,7 +1,7 @@
 ---
 external help file: CloudflarePS-help.xml
 Module Name: CloudflarePS
-online version: 
+online version: http://gavineke.com/CloudflarePS/New-CFConfig
 schema: 2.0.0
 ---
 
@@ -169,4 +169,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-http://gavineke.com/CloudflarePS/New-CFConfig.html
+[http://gavineke.com/CloudflarePS/New-CFConfig](http://gavineke.com/CloudflarePS/New-CFConfig)

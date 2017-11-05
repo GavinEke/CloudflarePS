@@ -1,7 +1,7 @@
 ---
 external help file: CloudflarePS-help.xml
 Module Name: CloudflarePS
-online version: 
+online version: http://gavineke.com/CloudflarePS/New-CFDnsRecord
 schema: 2.0.0
 ---
 
@@ -135,4 +135,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-http://gavineke.com/CloudflarePS/New-CFDnsRecord.html
+[http://gavineke.com/CloudflarePS/New-CFDnsRecord](http://gavineke.com/CloudflarePS/New-CFDnsRecord)

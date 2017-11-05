@@ -1,7 +1,7 @@
 ---
 external help file: CloudflarePS-help.xml
 Module Name: CloudflarePS
-online version: 
+online version: http://gavineke.com/CloudflarePS/Set-CFDevelopmentMode
 schema: 2.0.0
 ---
 
@@ -59,4 +59,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-http://gavineke.com/CloudflarePS/Set-CFDevelopmentMode.html
+[http://gavineke.com/CloudflarePS/Set-CFDevelopmentMode](http://gavineke.com/CloudflarePS/Set-CFDevelopmentMode)

@@ -1,7 +1,7 @@
 ---
 external help file: CloudflarePS-help.xml
 Module Name: CloudflarePS
-online version: 
+online version: http://gavineke.com/CloudflarePS/Get-CFDevelopmentMode
 schema: 2.0.0
 ---
 
@@ -43,4 +43,4 @@ Gets the status of development mode whether it is enabled or disabled
 
 ## RELATED LINKS
 
-http://gavineke.com/CloudflarePS/Get-CFDevelopmentMode.html
+[http://gavineke.com/CloudflarePS/Get-CFDevelopmentMode](http://gavineke.com/CloudflarePS/Get-CFDevelopmentMode)

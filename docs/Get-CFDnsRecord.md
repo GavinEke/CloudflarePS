@@ -1,7 +1,7 @@
 ---
 external help file: CloudflarePS-help.xml
 Module Name: CloudflarePS
-online version: 
+online version: http://gavineke.com/CloudflarePS/Get-CFDnsRecord
 schema: 2.0.0
 ---
 
@@ -51,4 +51,4 @@ Gets the DNS record with the name that starts with `www.`
 
 ## RELATED LINKS
 
-http://gavineke.com/CloudflarePS/Get-CFDnsRecord.html
+[http://gavineke.com/CloudflarePS/Get-CFDnsRecord](http://gavineke.com/CloudflarePS/Get-CFDnsRecord)
