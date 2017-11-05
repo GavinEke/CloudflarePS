@@ -51,3 +51,4 @@ Gets the DNS record with the name that starts with `www.`
 
 ## RELATED LINKS
 
+http://gavineke.com/CloudflarePS/Get-CFDnsRecord.html

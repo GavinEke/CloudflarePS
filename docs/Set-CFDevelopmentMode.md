@@ -59,3 +59,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
+http://gavineke.com/CloudflarePS/Set-CFDevelopmentMode.html

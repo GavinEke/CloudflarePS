@@ -135,3 +135,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
+http://gavineke.com/CloudflarePS/New-CFDnsRecord.html

@@ -66,3 +66,4 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
+http://gavineke.com/CloudflarePS/Remove-CFDnsRecord.html

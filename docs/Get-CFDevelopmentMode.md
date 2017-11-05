@@ -43,3 +43,4 @@ Gets the status of development mode whether it is enabled or disabled
 
 ## RELATED LINKS
 
+http://gavineke.com/CloudflarePS/Get-CFDevelopmentMode.html
