@@ -156,9 +156,9 @@ function Pester {
     [cmdletbinding()]
     param()
 
-    if ($env:TRAVIS) {
-        . "$PSScriptRoot/build/travis.ps1"
-    }
+    #if ($env:TRAVIS) {
+    #    . "$PSScriptRoot/build/travis.ps1"
+    #}
 
     Import-Module -Name $manifestPath
 
