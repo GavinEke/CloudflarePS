@@ -22,4 +22,4 @@ install:
     fi
 
 script:
-  - pwsh -File TravisCI.ps1
+  - pwsh -File build.ps1
