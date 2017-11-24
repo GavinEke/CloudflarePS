@@ -156,15 +156,11 @@ function Pester {
     [cmdletbinding()]
     param()
 
-    #if ($env:TRAVIS) {
-    #    . "$PSScriptRoot/build/travis.ps1"
-    #}
-
     Import-Module -Name $manifestPath
 
     $testResultsPath = "$PSScriptRoot/testResults.xml"
     $pesterParams = @{
-        Path         = './tests'
+        Path         = './Tests'
         OutputFile   = $testResultsPath
         OutputFormat = 'NUnitXml'
         PassThru     = $true
