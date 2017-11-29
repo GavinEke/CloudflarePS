@@ -12,9 +12,9 @@ Please read the rest of this document to ensure a smooth contribution process.
 
 ## Intro to Git and GitHub
 
-* Make sure you have a [GitHub account](https://github.com/signup/free).
-* GitHub Help: [Good Resources for Learning Git and GitHub][good-git-resources]
-* [GitHub Flow Guide](https://guides.github.com/introduction/flow/): step-by-step instructions of GitHub Flow
+* Make sure you have a [GitHub account][github-signup]
+* [Good Resources for Learning Git and GitHub][good-git-resources]
+* [GitHub Flow Guide][github-flow-guide]
 
 ## Contributing to Issues
 
@@ -75,7 +75,9 @@ Additional references:
 
 
 
+[github-signup]: https://github.com/signup/free
 [good-git-resources]: https://help.github.com/articles/good-resources-for-learning-git-and-github/
+[github-flow-guide]: https://guides.github.com/introduction/flow/
 [open-issue]: https://github.com/GavinEke/CloudflarePS/issues
 [new-issue]: https://github.com/GavinEke/CloudflarePS/issues/new
 [up-for-grabs]: https://github.com/GavinEke/CloudflarePS/issues?q=is%3Aopen+is%3Aissue+label%3AUp-for-Grabs
