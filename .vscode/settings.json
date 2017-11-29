@@ -1,0 +1,17 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+  
+    "files.insertFinalNewline": true,
+  
+    "[powershell]": {
+        "files.trimTrailingWhitespace": true
+    },
+  
+    "powershell.codeFormatting.preset": "OTBS",
+
+    "powershell.codeFormatting.whitespaceBeforeOpenBrace": true,
+    "powershell.codeFormatting.whitespaceBeforeOpenParen": true,
+    "powershell.codeFormatting.whitespaceAroundOperator": true,
+    "powershell.codeFormatting.whitespaceAfterSeparator": true
+}

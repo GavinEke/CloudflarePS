@@ -164,6 +164,7 @@ function Pester {
         OutputFile   = $testResultsPath
         OutputFormat = 'NUnitXml'
         PassThru     = $true
+        EnableExit   = $true
         PesterOption = @{
             IncludeVSCodeMarker = $true
         }
