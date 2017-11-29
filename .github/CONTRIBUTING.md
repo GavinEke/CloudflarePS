@@ -1,11 +1,13 @@
-# Contributing to PowerShell
+# Contributing to CloudflarePS
 
 We welcome and appreciate contributions from the community.
-There are many ways to become involved with PowerShell:
-including filing issues,
-joining in design conversations,
-writing and improving documentation,
-and contributing to the code.
+
+There are many ways to become involved with CloudflarePS including:
+
+- Filing issues
+- Writing and improving documentation
+- Contributing to the code
+
 Please read the rest of this document to ensure a smooth contribution process.
 
 ## Intro to Git and GitHub
