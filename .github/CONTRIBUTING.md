@@ -28,7 +28,9 @@ Please see the [`docs` folder][docs-folder] which contains the markdown help of 
 
 ### Code Editor
 
-You should use [VSCode][use-vscode-editor] as we have defined rules regarding formatting which [VSCode][use-vscode-editor] will force.
+You should use [VSCode][use-vscode-editor] as we have defined rules regarding formatting which [VSCode][vscode] will force.
+
+If you do choose to use a different code editor please make sure you adhere to the [Style Guide][style-guide]
 
 ### Testing
 
@@ -76,7 +78,8 @@ Additional references:
 [new-issue]: https://github.com/GavinEke/CloudflarePS/issues/new
 [up-for-grabs]: https://github.com/GavinEke/CloudflarePS/issues?q=is%3Aopen+is%3Aissue+label%3AUp-for-Grabs
 [docs-folder]: ../docs/
-[use-vscode-editor]: https://code.visualstudio.com/
+[vscode]: https://code.visualstudio.com/
+[style-guide]: http://gavineke.com/PowerShellStyleGuide/
 [using-prs]: https://help.github.com/articles/using-pull-requests/
 [fork-a-repo]: https://help.github.com/articles/fork-a-repo/
 [forking]: https://guides.github.com/activities/forking/
