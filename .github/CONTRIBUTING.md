@@ -30,7 +30,7 @@ Please see the [`docs` folder][docs-folder] which contains the markdown help of 
 
 ### Code Editor
 
-You should use [VSCode][use-vscode-editor] as we have defined rules regarding formatting which [VSCode][vscode] will force.
+You should use [VSCode][vscode] as we have defined rules regarding formatting which [VSCode][vscode] will force.
 
 If you do choose to use a different code editor please make sure you adhere to the [Style Guide][style-guide]
 
